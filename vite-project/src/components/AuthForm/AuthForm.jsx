@@ -1,16 +1,8 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Image,
-  Input,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
 import Login from "./Login";
 import Signup from "./Signup";
+import GoogleAuth from "./GoogleAuth";
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -23,6 +15,7 @@ const AuthForm = () => {
 
           {isLogin ? <Login /> : <Signup />}
 
+          {/* ---------------- OR -------------- */}
           <Flex
             alignItems={"center"}
             justifyContent={"center"}
@@ -36,16 +29,8 @@ const AuthForm = () => {
             </Text>
             <Box flex={2} h={"1px"} bg={"gray.400"} />
           </Flex>
-          <Flex
-            alignItems={"center"}
-            justifyContent={"center"}
-            cursor={"pointer"}
-          >
-            <Image src="/google.png" w={5} alt="Google logo" />
-            <Text mx={2} color={"blue.500"}>
-              Log in with Google
-            </Text>
-          </Flex>
+
+          <GoogleAuth prefix={isLogin ? "Log in" : "Sign up"} />
         </VStack>
       </Box>
 
@@ -59,7 +44,7 @@ const AuthForm = () => {
             color={"blue.500"}
             cursor={"pointer"}
           >
-            {isLogin ? "Sign Up" : "Log in"}
+            {isLogin ? "Sign up" : "Log in"}
           </Box>
         </Flex>
       </Box>
