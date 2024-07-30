@@ -1,6 +1,7 @@
 import { Alert, AlertIcon, Button, Input } from "@chakra-ui/react";
 import { useState } from "react";
 import useLogin from "../../hooks/useLogin";
+import { color } from "framer-motion";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -11,6 +12,8 @@ const Login = () => {
   return (
     <>
       <Input
+        borderColor={"black"}
+        color={"black"}
         placeholder="Email"
         fontSize={14}
         type="email"
@@ -19,7 +22,9 @@ const Login = () => {
         onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
       />
       <Input
-        placeholder="Password"
+        borderColor={"black"}
+        color={"black"}
+        placeholder="Password "
         fontSize={14}
         size={"sm"}
         type="password"
@@ -33,8 +38,9 @@ const Login = () => {
         </Alert>
       )}
       <Button
+        borderColor={"black"}
         w={"full"}
-        colorScheme="blue"
+        colorScheme={"purple"}
         size={"sm"}
         fontSize={14}
         isLoading={loading}

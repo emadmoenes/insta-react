@@ -11,7 +11,9 @@ const AuthForm = () => {
     <>
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
         <VStack spacing={4}>
-          <Image src="/logo.png" h={24} cursor={"pointer"} alt="Instagram" />
+          <Text fontSize={30} color={"black"} cursor={"pointer"}>
+            𝓝𝓮𝓶𝓸𝓰𝓻𝓪𝓶
+          </Text>
 
           {isLogin ? <Login /> : <Signup />}
 
@@ -24,7 +26,7 @@ const AuthForm = () => {
             w={"full"}
           >
             <Box flex={2} h={"1px"} bg={"gray.400"} />
-            <Text mx={1} color={"white"}>
+            <Text mx={1} color={"black"}>
               OR
             </Text>
             <Box flex={2} h={"1px"} bg={"gray.400"} />
@@ -36,7 +38,7 @@ const AuthForm = () => {
 
       <Box border={"1px solid gray"} borderRadius={4} padding={5}>
         <Flex alignItems={"center"} justifyContent={"center"}>
-          <Box mx={2} fontSize={14}>
+          <Box mx={2} fontSize={14} color={"black"}>
             {isLogin ? "Don't have an account?" : "Already have an account?"}
           </Box>
           <Box

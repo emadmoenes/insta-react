@@ -24,6 +24,8 @@ const Signup = () => {
     <>
       <Input
         placeholder="Email"
+        color={"black"}
+        borderColor={"black"}
         fontSize={14}
         type="email"
         size={"sm"}
@@ -32,6 +34,8 @@ const Signup = () => {
       />
       <Input
         placeholder="Username"
+        color={"black"}
+        borderColor={"black"}
         fontSize={14}
         type="text"
         size={"sm"}
@@ -40,6 +44,8 @@ const Signup = () => {
       />
       <Input
         placeholder="Full Name"
+        color={"black"}
+        borderColor={"black"}
         fontSize={14}
         type="text"
         size={"sm"}
@@ -49,6 +55,8 @@ const Signup = () => {
       <InputGroup>
         <Input
           placeholder="Password"
+          color={"black"}
+          borderColor={"black"}
           fontSize={14}
           type={showPassword ? "text" : "password"}
           value={inputs.password}
@@ -75,7 +83,7 @@ const Signup = () => {
 
       <Button
         w={"full"}
-        colorScheme="blue"
+        colorScheme="purple"
         size={"sm"}
         fontSize={14}
         isLoading={loading}
