@@ -1,6 +1,5 @@
-import React from "react";
-import { auth, firestore } from "../firebase/firebase";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth, firestore } from "../firebase/firebase";
 import {
   collection,
   doc,
@@ -13,12 +12,10 @@ import useShowToast from "./useShowToast";
 import useAuthStore from "../store/authStore";
 
 const useSignUpWithEmailAndPassword = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-
   const showToast = useShowToast();
   const loginUser = useAuthStore((state) => state.login);
-  const logoutUser = useAuthStore((state) => state.logout);
 
   const signup = async (inputs) => {
     if (
@@ -35,6 +32,7 @@ const useSignUpWithEmailAndPassword = () => {
 
     const q = query(usersRef, where("username", "==", inputs.username));
     const querySnapshot = await getDocs(q);
+
     if (!querySnapshot.empty) {
       showToast("Error", "Username already exists", "error");
       return;
@@ -46,7 +44,7 @@ const useSignUpWithEmailAndPassword = () => {
         inputs.password
       );
       if (!newUser && error) {
-        showToast("Error", error, "error");
+        showToast("Error", error.message, "error");
         return;
       }
       if (newUser) {
